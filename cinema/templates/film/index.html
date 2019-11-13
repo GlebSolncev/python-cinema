@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block PageTitle %}
+    Film
+{% endblock %}
+
+
+{% block content %} 
+
+    <div class="row" style="height:100px; background: silver; border:1px solid grey; margin-bottom: 10px;"> HEADER </div>
+    <div class="row">
+        <div class="col-3">
+            <img src="/media/{{ film.image }}" alt="">
+        </div>
+        <div class="col-9">
+            <h1>{{ film }}</h1>
+            {% if sessions %}
+                <p>Сеансы</p>
+                <ul>
+                    {% for session in sessions %}
+                        <li>
+                            <p><b>{{ session.type }}</b> ({{ session.time.hour }}:{{ session.time.minute }})</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-4">
+                    <p>Продолжительность: {{ film.time_work }} мин.</p>
+                </div>
+                <div class="col-8">{{ film.description }}</div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block PageTitle %}
+    {{ component.home_site_title }}
+{% endblock %}
+
+
+{% block content %}
+{#    {% load static %} #}
+{#    <img src="{% static '/uploads/images/Skrik_3.png' %}" alt="">#}
+
+    <div class="col-md-12">
+        {{ component.home_title_slider }}
+    </div>
+    <div class="col-md-12">
+        {% if page.allow_comment %}
+            <h4>Комментарии</h4>
+            {% if comments %}
+                <ul>
+                    {% for comment in comments %}
+                        <li>
+                            <p><b>{{ comment.name }}</b></p>
+                            <span>{{ comment.value }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <form method="post">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Текст">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Комментарий</label>
+                    <textarea class="form-control" name="value" id="comment" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}

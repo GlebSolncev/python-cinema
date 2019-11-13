@@ -1,0 +1,24 @@
+.box-admin-tools
+{
+    position: fixed;
+    left: 90%;
+    top: 70%;
+    border: 1px solid silver;
+    height: 150px;
+    width: 150px;
+}
+
+.box-admin-tools .row{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-admin-tools .row .col-12 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.box-admin-tools .row .col-12 .btn {
+    margin: 5px;
+}
